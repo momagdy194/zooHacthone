@@ -14,13 +14,11 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   Uint8List bytes = Uint8List(0);
-  TextEditingController _inputController;
   TextEditingController _outputController;
 
   @override
   initState() {
     super.initState();
-    this._inputController = new TextEditingController();
     this._outputController = new TextEditingController();
   }
 
@@ -123,7 +121,6 @@ class _MyAppState extends State<MyApp> {
                       Card(
                         color: Colors.orangeAccent,
                         child: ListTile(
-
                           leading: Icon(Icons.markunread_mailbox_sharp),
                           title: Text("First Product"),
                           trailing: Icon(Icons.arrow_forward_ios),
@@ -147,6 +144,9 @@ class _MyAppState extends State<MyApp> {
           },
         ));
   }
+
+
+
 
   Widget _buttonGroup() {
     return Row(
@@ -203,6 +203,10 @@ class _MyAppState extends State<MyApp> {
     );
   }
 
+
+
+//TODO: thats save the coad frome the camera y taher
+
   Future _scan() async {
     String barcode = await scanner.scan();
     if (barcode == null) {
@@ -211,6 +215,11 @@ class _MyAppState extends State<MyApp> {
       this._outputController.text = barcode;
     }
   }
+
+
+
+
+//TODO: thats save the coad frome the photo y taher
 
   Future _scanPhoto() async {
     String barcode = await scanner.scanPhoto();
